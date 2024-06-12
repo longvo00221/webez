@@ -1,4 +1,4 @@
-import AuthProvider from '@/app/_provider/Auth';
+
 import React from 'react';
 
 type MainLayoutProps = {
@@ -7,6 +7,6 @@ type MainLayoutProps = {
 
 const MainLayout:React.FC<MainLayoutProps> = ({children}) => {
     
-    return <AuthProvider>{children}</AuthProvider>
+    return <div>{children}</div>
 }
 export default MainLayout;

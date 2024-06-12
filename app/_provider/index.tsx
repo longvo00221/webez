@@ -4,11 +4,13 @@ import React from 'react'
 
 import ToastProvider from './Toast'
 import { ThemeProvider } from './Theme'
+import AuthProvider from './Auth'
 export const Providers: React.FC<{
   children: React.ReactNode
 }> = ({ children }) => {
   return (
-      <div>
+     <AuthProvider>
+       <div>
         <ToastProvider />
         
         <ThemeProvider
@@ -22,5 +24,6 @@ export const Providers: React.FC<{
         </ThemeProvider>
       
       </div>
+     </AuthProvider>
   )
 }

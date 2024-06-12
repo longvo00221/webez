@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Image from "next/image";
 
 export default function Home() {
@@ -110,4 +111,12 @@ export default function Home() {
       </div>
     </main>
   );
+}
+export const metadata: Metadata = {
+  title: 'Wezb',
+  description: 'Build your own website with Wezb.',
+  openGraph: {
+    title: 'Wezb',
+    url: '/site',
+}
 }
