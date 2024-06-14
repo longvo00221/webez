@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React, { useRef,useEffect } from 'react';
 import Image from 'next/image';
 import {
   Card,
@@ -17,7 +18,7 @@ type HomeProps = {
 };
 
 const Home:React.FC<HomeProps> = () => {
-    
+
     return (
     <>
         <section className="h-full w-full pt-36 relative flex items-center justify-center flex-col ">
@@ -227,5 +228,12 @@ const Home:React.FC<HomeProps> = () => {
       </section>
     </>
     )
+}
+export const getStaticPaths = async () => {
+  return{
+    props:{
+      pricingCards
+    }
+  }
 }
 export default Home;

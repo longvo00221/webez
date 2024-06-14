@@ -4,12 +4,11 @@ import React from 'react';
 import Link from 'next/link'
 import { UserButton } from '@clerk/nextjs';
 import { ModeToggle } from '../../ui/mode-toggle';
-type SiteNavigationProps = {
-    user?: User | null;
-};
+import { getAuthUserDetails } from '@/app/_lib/queries';
 
-const SiteNavigation:React.FC<SiteNavigationProps> = ({user}) => {
-    
+
+const SiteNavigation = async () => {
+    const user = await getAuthUserDetails()
     return (
         <div className="p-4 flex items-center justify-between bg-black z-50 fixed w-full">
             <aside className="flex items-center gap-2">
@@ -27,10 +26,11 @@ const SiteNavigation:React.FC<SiteNavigationProps> = ({user}) => {
                 </ul>
             </nav>
             <aside className="flex gap-2 items-center">
-                <Link href={'/agency/sign-in'} className=" text-white p-2 px-4 rounded-md hover:bg-primary bg-gradient-to-r from-primary to-secondary-foreground relative">
+                {user ?  <Link href={'/agency/sign-in'} className=" text-white p-2 px-4 rounded-md hover:bg-primary bg-gradient-to-r from-primary to-secondary-foreground relative">
                     Login
-                </Link>
-                <UserButton/>
+                </Link>: <UserButton/>}
+               
+                
                 <ModeToggle/>
             </aside>
         </div>
