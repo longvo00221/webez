@@ -68,7 +68,6 @@ const FormSchema = z.object({
 })
 
 const AgencyDetails = ({ data }: Props) => {
-  console.log(data)
   const { toast } = useToast()
   const router = useRouter()
   const [deletingAgency, setDeletingAgency] = useState(false)
